@@ -1,6 +1,6 @@
 {
   "name": "mapbox-gl-toggle-control",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add a toggle control to your Mapbox GL map.",
   "main": "index.js",
   "scripts": {
