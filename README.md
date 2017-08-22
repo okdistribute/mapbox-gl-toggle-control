@@ -51,3 +51,7 @@ Toggle showing or hiding the legend.
 #### ```ctrl.isOpen()```
 
 Returns `true` if the legend is open.
+
+## License
+
+MIT
