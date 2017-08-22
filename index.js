@@ -32,7 +32,10 @@ Toggle.prototype.onAdd = function (map) {
 }
 
 Toggle.prototype.onRemove = function () {
-  DOM.remove(this._container)
+  var node = this._container
+  if (node.parentNode) {
+     node.parentNode.removeChild(node);
+  }
   this._map = null
 }
 
