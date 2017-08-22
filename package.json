@@ -1,0 +1,26 @@
+{
+  "name": "mapbox-gl-legend-control",
+  "version": "1.0.0",
+  "description": "Add a legend control to your Mapbox GL map.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/karissa/mapbox-gl-legend.git"
+  },
+  "keywords": [
+    "mapbox-gl",
+    "legend",
+    "control",
+    "ctrl",
+    "mapboxgl"
+  ],
+  "author": "Karissa McKelvey <karissa@okdistribute.xyz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karissa/mapbox-gl-legend-control/issues"
+  },
+  "homepage": "https://github.com/karissa/mapbox-gl-legend-control#readme"
+}
