@@ -1,6 +1,9 @@
 # mapbox-gl-toggle-control
 
+[![npm version][0]][1]
+
 Add a toggle control to your Mapbox GL Map that has the look and feel of other Mapbox GL controls. When clicked, the given HTMLElement will appear or disappear.
+
 
 ```npm install mapbox-gl-toggle-control```
 
@@ -70,3 +73,5 @@ Returns `true` if the element is visible.
 ## License
 
 MIT
+[0]: https://img.shields.io/npm/v/mapbox-gl-toggle-control.svg?style=flat-square
+[1]: https://npmjs.org/package/mapbox-gl-toggle-control
