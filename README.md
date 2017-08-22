@@ -2,6 +2,8 @@
 
 Add a toggle control to your Mapbox GL Map that has the look and feel of other Mapbox GL controls. When clicked, the given HTMLElement will appear or disappear.
 
+```npm install mapbox-gl-toggle-control```
+
 [![example.gif](example.gif)]()
 
 ## Example
