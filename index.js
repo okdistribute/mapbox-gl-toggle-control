@@ -5,11 +5,12 @@ function createEl (tagName, className, container) {
   return el
 }
 
-function Legend (legend) {
-  if (!(this instanceof Legend)) return new Legend(legend)
+function Legend (legend, contents) {
+  if (!(this instanceof Legend)) return new Legend(legend, contents)
   this._map = null // mapbox-gl Map
   this._mapContainer = null // HTMLElement
   this._className = 'mapboxgl-ctrl' // string
+  this._contents = contents || 'i' // string
   this._container = null // HTMLelement
   this._legendButton = null // HTMLElement
   this._open = true // boolean
@@ -26,7 +27,7 @@ Legend.prototype.onAdd = function (map) {
   this._container = createEl('div', `${this._className} mapboxgl-ctrl-group`)
   const button = this._legendButton = createEl('button', (`${this._className}-icon ${this._className}-legend`), this._container)
   button.setAttribute('aria-label', 'Toggle legend')
-  button.innerHTML = 'L'
+  button.innerHTML = this._contents
   button.type = 'button'
   this._legendButton.addEventListener('click', this.toggle)
   return this._container

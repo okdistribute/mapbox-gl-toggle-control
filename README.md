@@ -1,12 +1,12 @@
-# mapbox-gl-legend-control
+# mapbox-gl-toggle-control
 
-Add a legend control to your Mapbox GL Map.
+Add a toggle control to your Mapbox GL Map that has the look and feel of other Mapbox GL controls. When clicked, the given HTMLElement will appear or disappear.
 
 ## Example
 
 ```js
 var mapbox = require('mapbox-gl')
-var LegendControl = require('mapbox-gl-legend')
+var ToggleControl = require('mapbox-gl-toggle-control')
 
 var map = new mapboxgl.Map({
   container: 'map', // container id
@@ -14,8 +14,8 @@ var map = new mapboxgl.Map({
   maxBounds: [-87, -9, -70, 6]
 })
 
-var legend = new LegendControl(document.querySelector('#my-legend'))
-map.addControl(legend, 'top-left')
+var toggle = new ToggleControl(document.querySelector('#my-legend'), contents)
+map.addControl(toggle, 'top-left')
 ```
 
 ```html
@@ -30,27 +30,28 @@ map.addControl(legend, 'top-left')
 
 ## API
 
-#### ```var ctrl = LegendControl(legend: HTMLElement)```
+#### ```var ctrl = ToggleControl(el: HTMLElement, contents)```
 
-Create the legend control. The control can be added to the map using `map.addControl(legend, location)`.
+Create the toggle control. The control can be added to the map using `map.addControl(ctrl, 'top-left')`.
 
-* `legend` is an HTMLElement that represents the legend. When the legend control is clicked or `toggle` is called, the legend will be shown or hidden.
+* `el`: HTMLElement. When the control is clicked or `toggle` is called, the element will be shown or hidden.
+* `contents`: The contents of the button.
 
 #### ```ctrl.hide()```
 
-Hide the legend.
+Hide the element.
 
 #### ```ctrl.show()```
 
-Show the legend.
+Show the element.
 
 #### ```ctrl.toggle()```
 
-Toggle showing or hiding the legend.
+Toggle showing or hiding the element.
 
 #### ```ctrl.isOpen()```
 
-Returns `true` if the legend is open.
+Returns `true` if the element is visible.
 
 ## License
 
