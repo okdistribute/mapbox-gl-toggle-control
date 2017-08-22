@@ -73,5 +73,6 @@ Returns `true` if the element is visible.
 ## License
 
 MIT
+
 [0]: https://img.shields.io/npm/v/mapbox-gl-toggle-control.svg?style=flat-square
 [1]: https://npmjs.org/package/mapbox-gl-toggle-control
