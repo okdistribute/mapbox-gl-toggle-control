@@ -12,7 +12,7 @@ function Toggle (el, contents) {
   this._className = 'mapboxgl-ctrl' // string
   this._contents = contents || ''
   this._container = null // HTMLelement
-  this._controlButton = null // HTMLElement
+  this._toggleButton = null // HTMLElement
   this.toggle = this.toggle.bind(this)
   this.show = this.show.bind(this)
   this.hide = this.hide.bind(this)
