@@ -14,7 +14,7 @@ var map = new mapboxgl.Map({
   maxBounds: [-87, -9, -70, 6]
 })
 
-var toggle = new ToggleControl(document.querySelector('#my-legend'), contents)
+var toggle = new ToggleControl(document.querySelector('#my-legend'))
 map.addControl(toggle, 'top-left')
 ```
 
@@ -28,14 +28,16 @@ map.addControl(toggle, 'top-left')
 </div>
 ```
 
+This will create a control button on the map. The contents of the button can be changed via the CSS class `mapboxgl-ctrl-toggle`.
+
 ## API
 
-#### ```var ctrl = ToggleControl(el: HTMLElement, contents)```
+#### ```var ctrl = ToggleControl(el: HTMLElement, [contents])```
 
 Create the toggle control. The control can be added to the map using `map.addControl(ctrl, 'top-left')`.
 
-* `el`: HTMLElement. When the control is clicked or `toggle` is called, the element will be shown or hidden.
-* `contents`: The contents of the button.
+* `el`: (required) HTMLElement. When the control is clicked or `toggle` is called, the element will be shown or hidden.
+* `contents`: (optional) The innerHTML contents of the button.
 
 #### ```ctrl.hide()```
 
