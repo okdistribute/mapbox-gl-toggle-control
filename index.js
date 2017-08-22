@@ -5,56 +5,53 @@ function createEl (tagName, className, container) {
   return el
 }
 
-function Legend (legend, contents) {
-  if (!(this instanceof Legend)) return new Legend(legend, contents)
+function Toggle (el, contents) {
+  if (!(this instanceof Toggle)) return new Toggle(el, contents)
   this._map = null // mapbox-gl Map
   this._mapContainer = null // HTMLElement
   this._className = 'mapboxgl-ctrl' // string
   this._contents = contents || 'i' // string
   this._container = null // HTMLelement
-  this._legendButton = null // HTMLElement
-  this._open = true // boolean
+  this._controlButton = null // HTMLElement
   this.toggle = this.toggle.bind(this)
   this.show = this.show.bind(this)
   this.hide = this.hide.bind(this)
   this.isOpen = this.isOpen.bind(this)
-  this._legend = (typeof legend === 'function') ? legend(this._onClickToggleLegend) : legend
+  this._el = (typeof el === 'function') ? el(this.toggle) : el
 }
 
-Legend.prototype.onAdd = function (map) {
+Toggle.prototype.onAdd = function (map) {
   this._map = map
   this._mapContainer = this._map.getContainer()
   this._container = createEl('div', `${this._className} mapboxgl-ctrl-group`)
-  const button = this._legendButton = createEl('button', (`${this._className}-icon ${this._className}-legend`), this._container)
-  button.setAttribute('aria-label', 'Toggle legend')
+  const button = this._toggleButton = createEl('button', (`${this._className}-icon ${this._className}-toggle`), this._container)
+  button.setAttribute('aria-label', 'Toggle')
   button.innerHTML = this._contents
   button.type = 'button'
-  this._legendButton.addEventListener('click', this.toggle)
+  this._toggleButton.addEventListener('click', this.toggle)
   return this._container
 }
 
-Legend.prototype.onRemove = function () {
+Toggle.prototype.onRemove = function () {
   DOM.remove(this._container)
   this._map = null
 }
 
-Legend.prototype.toggle = function () {
-  if (this._open) return this.hide()
+Toggle.prototype.toggle = function () {
+  if (this.isOpen()) return this.hide()
   else return this.show()
 }
 
-Legend.prototype.hide = function () {
-  this._open = false
-  this._legend.style.display = 'none'
+Toggle.prototype.hide = function () {
+  this._el.style.display = 'none'
 }
 
-Legend.prototype.show = function () {
-  this._open = true
-  this._legend.style.display = ''
+Toggle.prototype.show = function () {
+  this._el.style.display = ''
 }
 
-Legend.prototype.isOpen = function () {
-  return this._open
+Toggle.prototype.isOpen = function () {
+  return !this._el.style.display === 'none'
 }
 
-module.exports = Legend
+module.exports = Toggle
