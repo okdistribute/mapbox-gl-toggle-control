@@ -25,7 +25,6 @@ Toggle.prototype.onAdd = function (map) {
   this._mapContainer = this._map.getContainer()
   this._container = createEl('div', `${this._className} mapboxgl-ctrl-group`)
   const button = this._toggleButton = createEl('button', (`${this._className}-icon ${this._className}-toggle`), this._container)
-  button.setAttribute('aria-label', 'Toggle')
   button.innerHTML = this._contents
   button.type = 'button'
   this._toggleButton.addEventListener('click', this.toggle)
@@ -38,8 +37,8 @@ Toggle.prototype.onRemove = function () {
 }
 
 Toggle.prototype.toggle = function () {
-  if (this.isOpen()) return this.hide()
-  else return this.show()
+  if (this.isOpen()) this.hide()
+  else this.show()
 }
 
 Toggle.prototype.hide = function () {
@@ -51,7 +50,7 @@ Toggle.prototype.show = function () {
 }
 
 Toggle.prototype.isOpen = function () {
-  return !this._el.style.display === 'none'
+  return this._el.style.display !== 'none'
 }
 
 module.exports = Toggle
