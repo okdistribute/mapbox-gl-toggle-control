@@ -14,6 +14,9 @@ function Legend (legend) {
   this._legendButton = null // HTMLElement
   this._open = true // boolean
   this.toggle = this.toggle.bind(this)
+  this.show = this.show.bind(this)
+  this.hide = this.hide.bind(this)
+  this.isOpen = this.isOpen.bind(this)
   this._legend = (typeof legend === 'function') ? legend(this._onClickToggleLegend) : legend
 }
 
@@ -47,6 +50,10 @@ Legend.prototype.hide = function () {
 Legend.prototype.show = function () {
   this._open = true
   this._legend.style.display = ''
+}
+
+Legend.prototype.isOpen = function () {
+  return this._open
 }
 
 module.exports = Legend
