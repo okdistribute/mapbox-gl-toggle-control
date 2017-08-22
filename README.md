@@ -21,6 +21,14 @@ map.addControl(toggle, 'top-left')
 ```
 
 ```html
+<style>
+  .mapboxgl-ctrl-toggle {
+    background-image: url(/icons/my-toggle-button.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center;
+  }
+</style>
 <div id="map"></div>
 <div id="my-legend">
   <ul>
